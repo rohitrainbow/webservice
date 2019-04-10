@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 
 @RestController
 @RequestMapping("/api/products")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ProductController {
 
     private ProductService productService;
@@ -21,7 +22,6 @@ public class ProductController {
     }
 
     @GetMapping(value = { "", "/" })
-    @CrossOrigin(origins = "http://localhost:4200")
     public @NotNull Iterable<Product> getProducts() {
         return productService.getAllProducts();
     }

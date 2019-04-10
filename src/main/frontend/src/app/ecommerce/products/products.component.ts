@@ -52,31 +52,38 @@ export class ProductsComponent implements OnInit {
     isProductSelected(product: Product): boolean {
         return this.getProductIndex(product) > -1;
     }
-
-    loadProducts() {
-        this.ecommerceService.getAllProducts()
-            .subscribe(
-                (products: any[]) => {
-                    this.products = products;
-                    this.products.forEach(product => {
-                        this.productOrders.push(new ProductOrder(product, 0));
-                    })
-                },
-                (error) => console.log(error)
-            );
-    }
-
-    loadOrders() {
+    
+        loadOrders() {
         this.sub = this.ecommerceService.OrdersChanged.subscribe(() => {
             this.shoppingCartOrders = this.ecommerceService.ProductOrders;
         });
     }
-
-    reset() {
+    
+        reset() {
         this.productOrders = [];
         this.loadProducts();
         this.ecommerceService.ProductOrders.productOrders = [];
         this.loadOrders();
         this.productSelected = false;
     }
+
+    loadProducts() {
+        this.ecommerceService.getAllProducts()
+            .subscribe(
+                (products: any[]) => {
+                    this.products = products;
+                        for(var i in this.products){
+    console.log(this.products[i]);//This will print the objects
+    console.log(i);//This will print the index of the objects
+    this.productOrders.push(new ProductOrder(this.products[i], 0)
+}
+                    })
+                },
+                (error) => console.log(error)
+            );
+    }
+
+
+
+
 }
