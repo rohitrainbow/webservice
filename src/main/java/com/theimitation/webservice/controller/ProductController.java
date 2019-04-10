@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 
 @RestController
 @RequestMapping("/api/products")
-@CrossOrigin(origins = "http://20.198.10.4:4200")
+@CrossOrigin(origins = "http://20.198.10.4:8086")
 public class ProductController {
 
     private ProductService productService;
