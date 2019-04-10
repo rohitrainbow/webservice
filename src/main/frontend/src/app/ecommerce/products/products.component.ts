@@ -69,18 +69,15 @@ export class ProductsComponent implements OnInit {
 
     loadProducts() {
         this.ecommerceService.getAllProducts()
-            .subscribe(
-                (products: any[]) => {
-                    this.products = products;
-                        for(var i in this.products){
-    console.log(this.products[i]);
-    console.log(i);
-    this.productOrders.push(new ProductOrder(this.products[i], 0);
-}
-                    })
-                }),
-                (error) => console.log(error)
+            .subscribe((products: any[]) => {this.products = products;            for(var i in this.products){
+    this.productOrders.push(new ProductOrder(this.products[i], 0));
+}}
+                
             );
+            
+            
+
+             
     }
 
 
