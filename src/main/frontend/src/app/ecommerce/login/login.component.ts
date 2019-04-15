@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   returnUrl: string;
+  message:string;
   constructor(private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
@@ -22,6 +23,10 @@ export class LoginComponent implements OnInit {
     private alertService: AlertService) { }
 
   ngOnInit() {
+    if(JSON.parse(localStorage.getItem('currentUser'))!=null)
+    {
+        this.router.navigate(['/home']);
+    }
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -43,17 +48,25 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.loading = true;
-   
+
     this.authenticationService.login(this.f.username.value, this.f.password.value)
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate([this.returnUrl]);
+
+          if (data.token!=null) {
+            this.router.navigate([this.returnUrl + '/home']);
+          }
+          else {
+            this.alertService.error("Inavlid Credentials");
+            this.submitted = false;
+            this.loading=false;
+          }
+          this.message=data.message;
         },
         error => {
-          this.alertService.error(error);
+
           this.loading = false;
         });
-        this.router.navigate(['/home']);
   }
 }

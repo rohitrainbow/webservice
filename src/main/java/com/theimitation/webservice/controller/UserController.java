@@ -14,15 +14,22 @@ import com.theimitation.webservice.security.Authentication;
 @RestController
 @CrossOrigin(origins = "http://20.198.10.4:8086")
 public class UserController {
-	
+
 	@Autowired
 	Authentication authentication;
 	
-	
-	@RequestMapping(method = RequestMethod.POST, value ="/users/authenticate")
-	public User login(@RequestBody Login login)
-	{
-		System.out.println("Called");
-		return authentication.generateToken();
+	@Autowired
+	User user;
+
+	@RequestMapping(method = RequestMethod.POST, value = "/users/authenticate")
+	public User login(@RequestBody Login login) {
+		user.setId(545);
+		user.setToken(null);
+		user.setMessage("Invalid Credentials!!");
+		if (login.getUsername().equals("theimitation") && login.getPassword().equals("juna283")) {
+			user.setToken(authentication.generateToken());
+		}
+
+		return user;
 	}
 }

@@ -54,7 +54,7 @@ const appRoutes: Routes = [
         HttpClientModule,
         FormsModule,
         ReactiveFormsModule,
-        RouterModule.forRoot(appRoutes, { useHash: false })
+        RouterModule.forRoot(appRoutes, { useHash: true })
     ],
     providers: [EcommerceService,AuthenticationService,AlertService],
     bootstrap: [AppComponent]

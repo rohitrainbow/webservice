@@ -2,6 +2,9 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {ProductsComponent} from "./products/products.component";
 import {ShoppingCartComponent} from "./shopping-cart/shopping-cart.component";
 import {OrdersComponent} from "./orders/orders.component";
+import { User } from './models/user';
+import { UserServiceService } from './services/user-service.service';
+import { Router} from '@angular/router';
 
 @Component({
     selector: 'app-ecommerce',
@@ -9,8 +12,10 @@ import {OrdersComponent} from "./orders/orders.component";
     styleUrls: ['./ecommerce.component.css']
 })
 export class EcommerceComponent implements OnInit {
+    currentUser: User;
     public collapsed = true;
     orderFinished = false;
+    
 
     @ViewChild('productsC')
     productsC: ProductsComponent;
@@ -21,10 +26,18 @@ export class EcommerceComponent implements OnInit {
     @ViewChild('ordersC')
     ordersC: OrdersComponent;
 
-    constructor() {
+    constructor(private userService: UserServiceService,private router: Router) {
+        
+       
     }
 
     ngOnInit() {
+
+         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+         if(this.currentUser==null)
+         {
+             this.router.navigate(['/']);
+         }
     }
 
     toggleCollapsed(): void {
