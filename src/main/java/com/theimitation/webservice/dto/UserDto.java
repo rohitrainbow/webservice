@@ -1,9 +1,9 @@
-package com.theimitation.webservice.model;
+package com.theimitation.webservice.dto;
 
 import javax.annotation.ManagedBean;
 
 @ManagedBean
-public class User {
+public class UserDto {
 	private Integer id;
 	private String userName;
 	private String password;

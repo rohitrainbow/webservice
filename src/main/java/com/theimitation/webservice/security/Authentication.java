@@ -12,7 +12,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Component;
 
-import com.theimitation.webservice.model.User;
+import com.theimitation.webservice.dto.UserDto;
 
 @Component
 public class Authentication {

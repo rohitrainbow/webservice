@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.theimitation.webservice.dto.Login;
-import com.theimitation.webservice.model.User;
+import com.theimitation.webservice.dto.UserDto;
 import com.theimitation.webservice.security.Authentication;
 
 @RestController
@@ -19,10 +19,10 @@ public class UserController {
 	Authentication authentication;
 	
 	@Autowired
-	User user;
+	UserDto user;
 
 	@RequestMapping(method = RequestMethod.POST, value = "/users/authenticate")
-	public User login(@RequestBody Login login) {
+	public UserDto login(@RequestBody Login login) {
 		user.setId(545);
 		user.setToken(null);
 		user.setMessage("Invalid Credentials!!");
