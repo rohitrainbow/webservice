@@ -3,9 +3,9 @@ package com.theimitation.webservice.service;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.theimitation.webservice.exception.ResourceNotFoundException;
 import com.theimitation.webservice.model.Product;
 import com.theimitation.webservice.repository.ProductRepository;
-import com.theimitation.webservice.exception.ResourceNotFoundException;
 
 @Service
 @Transactional
