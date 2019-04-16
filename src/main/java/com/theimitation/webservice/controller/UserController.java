@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.theimitation.webservice.dto.Login;
 import com.theimitation.webservice.dto.UserDto;
+import com.theimitation.webservice.model.User;
 import com.theimitation.webservice.security.Authentication;
+import com.theimitation.webservice.service.UserService;
 
 @RestController
 @CrossOrigin(origins = "http://20.198.10.4:8086")
@@ -17,19 +19,23 @@ public class UserController {
 
 	@Autowired
 	Authentication authentication;
-	
+
 	@Autowired
-	UserDto user;
+	UserService userService;
+
+	@Autowired
+	UserDto userDto;
 
 	@RequestMapping(method = RequestMethod.POST, value = "/users/authenticate")
 	public UserDto login(@RequestBody Login login) {
-		user.setId(545);
-		user.setToken(null);
-		user.setMessage("Invalid Credentials!!");
-		if (login.getUsername().equals("theimitation") && login.getPassword().equals("juna283")) {
-			user.setToken(authentication.generateToken());
+		userDto.setToken(null);
+		userDto.setMessage("Invalid Credentials!!");
+		if (userService.userAuthentication(login.getUsername(), login.getPassword()) != null)
+			userDto = userService.userAuthentication(login.getUsername(), login.getPassword());
+		if (userService.userAuthentication(login.getUsername(), login.getPassword()) != null) {
+			userDto.setToken(authentication.generateToken());
 		}
 
-		return user;
+		return userDto;
 	}
 }

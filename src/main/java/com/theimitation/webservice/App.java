@@ -2,7 +2,6 @@ package com.theimitation.webservice;
 
 import java.util.Collections;
 
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,8 +12,10 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+import com.theimitation.webservice.dao.UserDao;
 import com.theimitation.webservice.model.Product;
 import com.theimitation.webservice.service.ProductService;
+import com.theimitation.webservice.service.UserService;
 
 @SpringBootApplication
 public class App {
@@ -24,7 +25,7 @@ public class App {
 	}
 
 	@Bean
-	CommandLineRunner runner(ProductService productService) {
+	CommandLineRunner runner(ProductService productService, UserDao userService) {
 		return args -> {
 			productService.save(new Product(1L, "TV Set", 300.00, "images/tv.jpeg"));
 			productService.save(new Product(2L, "Game Console", 200.00, "images/gameconsole.jpg"));
@@ -34,6 +35,7 @@ public class App {
 			productService.save(new Product(6L, "Phone", 500.00, "images/phone.jpg"));
 			productService.save(new Product(7L, "Watch", 30.00, "images/watch.jpg"));
 		};
+
 	}
 
 	@Bean

@@ -4,7 +4,7 @@ import javax.annotation.ManagedBean;
 
 @ManagedBean
 public class UserDto {
-	private Integer id;
+	private Long id;
 	private String userName;
 	private String password;
 	private String firstName;
@@ -24,10 +24,10 @@ public class UserDto {
 	public void setToken(String token) {
 		this.token = token;
 	}
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getUserName() {
