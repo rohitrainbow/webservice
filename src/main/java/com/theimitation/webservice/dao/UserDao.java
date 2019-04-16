@@ -4,6 +4,9 @@ import com.theimitation.webservice.model.User;
 
 public interface UserDao {
 
-	public User userAuthentication(String userName,String password);
-	public String userRegistration();
+	public User getUser(String userName) throws Exception;
+
+	public String userRegistration(User user) throws Exception;
+
+	public User save(User user);
 }
