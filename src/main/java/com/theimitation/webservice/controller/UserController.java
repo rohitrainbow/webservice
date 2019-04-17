@@ -13,7 +13,7 @@ import com.theimitation.webservice.model.User;
 import com.theimitation.webservice.service.UserService;
 
 @RestController
-@CrossOrigin(origins = "http://20.198.10.4:8086")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
 	@Autowired

@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/orders")
-@CrossOrigin(origins = "http://20.198.10.4:8086")
+@CrossOrigin(origins = "http://localhost:8086")
 public class OrderController {
 
     ProductService productService;
