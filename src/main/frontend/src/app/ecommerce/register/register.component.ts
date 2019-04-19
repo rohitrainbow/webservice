@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   loading = false;
   submitted = false;
-
+  message: string;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -23,9 +23,9 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      userName: ['', Validators.required],
+      firstName: ['', [Validators.required, Validators.maxLength(15)]],
+      lastName: ['', [Validators.required, Validators.maxLength(15)]],
+      userName: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(35)]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
@@ -42,15 +42,15 @@ export class RegisterComponent implements OnInit {
 
     this.loading = true;
     this.userService.register(this.registerForm.value)
-            .pipe(first())
-            .subscribe(
-                data => {
-                    this.alertService.success('Registration successful', true);
-                    this.router.navigate(['/login']);
-                },
-                error => {
-                    this.alertService.error(error);
-                    this.loading = false;
-                });
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.message = data;
+          this.loading = false;
+        },
+        error => {
+          this.message = error;
+          this.loading = false;
+        });
   }
 }
