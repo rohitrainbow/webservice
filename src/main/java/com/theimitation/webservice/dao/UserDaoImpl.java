@@ -30,8 +30,8 @@ public class UserDaoImpl implements UserDao {
 	public User getUser(String userName) throws Exception {
 		try {
 			List<User> results = new ArrayList<User>();
-			results = entityManager.createQuery("SELECT user FROM User user where user.userName = :userName")
-					.setParameter("userName", userName).getResultList();
+			results = entityManager.createQuery("SELECT user FROM User user where LOWER(user.userName) = :userName")
+					.setParameter("userName", userName.toLowerCase()).getResultList();
 			if (results.isEmpty())
 				throw new Exception("USER_DOES_NOT_EXIST");
 			return results.get(0);
