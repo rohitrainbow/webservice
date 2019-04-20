@@ -27,11 +27,11 @@ public class UserDaoImpl implements UserDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public User getUser(String userName) throws Exception {
+	public User getUser(String email) throws Exception {
 		try {
 			List<User> results = new ArrayList<User>();
-			results = entityManager.createQuery("SELECT user FROM User user where LOWER(user.userName) = :userName")
-					.setParameter("userName", userName.toLowerCase()).getResultList();
+			results = entityManager.createQuery("SELECT user FROM User user where LOWER(user.email) = :email")
+					.setParameter("email", email.toLowerCase()).getResultList();
 			if (results.isEmpty())
 				throw new Exception("USER_DOES_NOT_EXIST");
 			return results.get(0);
@@ -46,7 +46,7 @@ public class UserDaoImpl implements UserDao {
 	public String userRegistration(User user) throws Exception {
 		// TODO Auto-generated method stub
 		try {
-			getUser(user.getUserName());
+			getUser(user.getEmail());
 			return "USER_EXIST";
 		} catch (Exception e) {
 			if (e.getMessage().equals("USER_DOES_NOT_EXIST")) {

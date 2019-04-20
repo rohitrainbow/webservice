@@ -12,6 +12,11 @@ export class UserServiceService {
   constructor(private http: HttpClient) { }
 
   register(user: User) {
-    return this.http.post(`http://localhost/users/register`, user, { responseType: 'text'});
+    return this.http.post(`/users/register`, user, { responseType: 'text'});
 }
+
+  validateUserName(userName)
+  {
+    
+  }
 }

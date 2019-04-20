@@ -15,17 +15,37 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@NotNull(message = "username is required.")
-    @Basic(optional = false)
-	@Column(unique=true)
-    private String userName;
-	
+
+	@NotNull(message = "email is required.")
+	@Basic(optional = false)
+	@Column(unique = true)
+	private String email;
+
 	private String password;
-	
+
 	private String firstName;
-	
+
 	private String lastName;
+
+	private Boolean verified;
+
+	private String emailToken;
+
+	public String getEmailToken() {
+		return emailToken;
+	}
+
+	public void setEmailToken(String emailToken) {
+		this.emailToken = emailToken;
+	}
+
+	public Boolean getVerified() {
+		return verified;
+	}
+
+	public void setVerified(Boolean verified) {
+		this.verified = verified;
+	}
 
 	public Long getId() {
 		return id;
@@ -35,12 +55,12 @@ public class User {
 		this.id = id;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUserName(String email) {
+		this.email = email;
 	}
 
 	public String getPassword() {
@@ -66,6 +86,5 @@ public class User {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
-	
+
 }
