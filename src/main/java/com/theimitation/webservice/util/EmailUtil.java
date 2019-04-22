@@ -26,12 +26,12 @@ public class EmailUtil {
 	 */
 	public void sendEmail(Session session, String toEmail, String subject, String body) {
 		try {
-			final String fromEmail = "theimitation@outlook.com"; // requires valid gmail id
+			final String fromEmail = "admin@theimitation.store"; // requires valid gmail id
 			final String password = "bhagwanJaane@123"; // correct password for gmail id
 		
 			System.out.println("TLSEmail Start");
 			Properties props = new Properties();
-			props.put("mail.smtp.host", "smtp.office365.com"); // SMTP Host
+			props.put("mail.smtp.host", "smtp.zoho.com"); // SMTP Host
 			props.put("mail.smtp.port", "587"); // TLS Port
 			props.put("mail.smtp.auth", "true"); // enable authentication
 			props.put("mail.smtp.starttls.enable", "true"); // enable STARTTLS
@@ -50,10 +50,14 @@ public class EmailUtil {
 			msg.addHeader("Content-type", "text/HTML; charset=UTF-8");
 			msg.addHeader("format", "flowed");
 			msg.addHeader("Content-Transfer-Encoding", "8bit");
+			
+			InternetAddress from=new InternetAddress(fromEmail, "The Imitation");
 
-			msg.setFrom("theimitation@outlook.com");
+			msg.setFrom(from);
+			
+			
 
-			msg.setReplyTo(InternetAddress.parse("theimitation@outlook.com", false));
+			msg.setReplyTo(InternetAddress.parse("admin@theimitation.store", false));
 
 			msg.setSubject(subject, "UTF-8");
 
