@@ -66,7 +66,7 @@ public class UserServiceImpl implements UserService {
 				String token = authentication.generateToken();
 				user.setEmailToken(token);
 				status = "User Registered Successfully";
-				//userActivationEmail(user,token);
+				userActivationEmail(user,token);
 			}
 			else if (status.equals("USER_EXIST"))
 			{
