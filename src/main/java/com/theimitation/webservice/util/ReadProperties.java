@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ReadProperties {
-	@Value("${myProperties}")
+	//@Value("${myProperties}")
 	String location;
 
 	Properties prop = new Properties();

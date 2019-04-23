@@ -13,7 +13,7 @@ import com.theimitation.webservice.util.PaytmConstants;
 @Transactional
 public class PaymentServiceImpl implements PaymentService {
 
-	// @Override
+	 @Override
 	public String paymentRedirect(String orderId, String custId, String mobileNo, String email, String txnAmount)
 			throws Exception {
 		String merchantMid = PaytmConstants.MID;
@@ -25,7 +25,7 @@ public class PaymentServiceImpl implements PaymentService {
 		// This is the staging value. Production value is available in your dashboard
 		String industryTypeId = PaytmConstants.INDUSTRY_TYPE_ID;
 		// This is the staging value. Production value is available in your dashboard
-		String callbackUrl = "http://www.theimitation.store/#/login";
+		String callbackUrl = "http://www.google.com";
 		TreeMap<String, String> paytmParams = new TreeMap<String, String>();
 		paytmParams.put("MID", merchantMid);
 		paytmParams.put("ORDER_ID", orderId);
