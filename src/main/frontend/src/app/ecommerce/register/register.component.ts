@@ -45,12 +45,23 @@ export class RegisterComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.message = data;
-          this.loading = false;
+          if (data === 'User Registered Successfully') {
+            console.log(data);
+            this.loading = false;
+            this.clickMethod(data);
+          } else {
+            this.message = data;
+            this.loading = false;
+          }
         },
         error => {
           this.message = error;
           this.loading = false;
         });
+  }
+
+  clickMethod(data: string) {
+    alert(data);
+    this.router.navigate(['/login']);
   }
 }

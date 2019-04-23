@@ -18,7 +18,6 @@ public class User {
 
 	@NotNull(message = "email is required.")
 	@Basic(optional = false)
-	@Column(unique = true)
 	private String email;
 
 	private String password;

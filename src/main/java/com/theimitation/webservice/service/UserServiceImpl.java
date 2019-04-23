@@ -64,9 +64,9 @@ public class UserServiceImpl implements UserService {
 			if (status.equals("REGISTRATION_SUCCESS"))
 			{
 				String token = authentication.generateToken();
-				userActivationEmail(user,token);
 				user.setEmailToken(token);
 				status = "User Registered Successfully";
+				userActivationEmail(user,token);
 			}
 			else if (status.equals("USER_EXIST"))
 			{
@@ -87,6 +87,7 @@ public class UserServiceImpl implements UserService {
 				+ "<p>We have recieved a registration request for The Imitation Store Account.</p><p>Please use the below link to activate your account,</p>";
 		body = body + "<center><a href=\"" + url
 				+ "\" style=\"text-decoration: none;\">Activate</a></center>";
+		body=body+"<p>Regards,</p><p>The Imitation Team</p>";
 		System.out.println(body);
 		emailUtil.sendEmail(null, user.getEmail(), subject, body);
 	}
