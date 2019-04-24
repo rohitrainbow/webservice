@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 import { User } from '../models/user';
 
@@ -12,7 +12,6 @@ export class UserServiceService {
   constructor(private http: HttpClient) { }
 
   register(user: User) {
-    this.data = this.http.post(`users/register`, user, { responseType: 'text'});
-    return this.data;
+    return this.http.post(`/users/register`, user, { responseType: 'text'});
 }
 }

@@ -1,13 +1,15 @@
-import {ProductOrder} from "../models/product-order.model";
-import {Subject} from "rxjs/internal/Subject";
-import {ProductOrders} from "../models/product-orders.model";
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from "@angular/core";
+import { ProductOrder } from "../models/product-order.model";
+import { Subject } from "rxjs/internal/Subject";
+import { ProductOrders } from "../models/product-orders.model";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { Payment } from "../models/payment";
 
 @Injectable()
 export class EcommerceService {
     private productsUrl = "api/products";
     private ordersUrl = "api/orders";
+    private paymentUrl = "/api/payment";
 
     private productOrder: ProductOrder;
     private orders: ProductOrders = new ProductOrders();
@@ -58,5 +60,9 @@ export class EcommerceService {
     set Total(value: number) {
         this.total = value;
         this.totalSubject.next();
+    }
+
+    redirectPayment(payment: Payment){
+        return this.http.post(this.paymentUrl, payment, { responseType: 'text'});
     }
 }
