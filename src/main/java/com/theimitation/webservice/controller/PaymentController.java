@@ -19,9 +19,6 @@ public class PaymentController {
 
 	@RequestMapping(method = RequestMethod.POST, value = "/api/payment")
 	public String paymentRedirect(@RequestBody PaymentDto payment) {
-		System.out.println("called");
-		System.out.println(payment.getCustId());
-		System.out.println(paymentService.paymentRedirect("1","2","9827217123","rohit.lalwani@outlook.com","200.00"));
 		return paymentService.paymentRedirect("1","2","9827217123","rohit.lalwani@outlook.com","200.00");
 	}
 }
