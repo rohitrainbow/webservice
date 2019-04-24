@@ -15,7 +15,7 @@ public class PaymentServiceImpl implements PaymentService {
 
 	 @Override
 	public String paymentRedirect(String orderId, String custId, String mobileNo, String email, String txnAmount)
-			throws Exception {
+			 {
 		String merchantMid = PaytmConstants.MID;
 		// Key in your staging and production MID available in your dashboard
 		String merchantKey = PaytmConstants.MERCHANT_KEY;
@@ -37,8 +37,14 @@ public class PaymentServiceImpl implements PaymentService {
 		paytmParams.put("WEBSITE", website);
 		paytmParams.put("INDUSTRY_TYPE_ID", industryTypeId);
 		paytmParams.put("CALLBACK_URL", callbackUrl);
-		String paytmChecksum = CheckSumServiceHelper.getCheckSumServiceHelper().genrateCheckSum(merchantKey,
-				paytmParams);
+		String paytmChecksum=null;
+		try {
+			paytmChecksum = CheckSumServiceHelper.getCheckSumServiceHelper().genrateCheckSum(merchantKey,
+					paytmParams);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		StringBuilder outputHtml = new StringBuilder();
 		outputHtml.append(
 				"<!DOCTYPE html PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN' 'http://www.w3.org/TR/html4/loose.dtd'>");

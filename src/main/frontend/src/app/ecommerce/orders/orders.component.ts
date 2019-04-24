@@ -1,8 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {ProductOrders} from "../models/product-orders.model";
-import {Subscription} from "rxjs/internal/Subscription";
-import {EcommerceService} from "../services/EcommerceService";
+import { Component, OnInit } from '@angular/core';
+import { ProductOrders } from '../models/product-orders.model';
+import { Subscription } from 'rxjs/internal/Subscription';
+import { EcommerceService } from '../services/EcommerceService';
 import { Payment } from '../models/payment';
+import { first } from 'rxjs/operators';
+import { Router } from '@angular/router';
+
 
 @Component({
     selector: 'app-orders',
@@ -16,7 +19,7 @@ export class OrdersComponent implements OnInit {
     payment: Payment;
     sub: Subscription;
 
-    constructor(private ecommerceService: EcommerceService) {
+    constructor(private ecommerceService: EcommerceService, private router: Router) {
         this.orders = this.ecommerceService.ProductOrders;
     }
 
@@ -33,9 +36,16 @@ export class OrdersComponent implements OnInit {
         this.payment = new Payment();
         this.payment.custId = '5544';
         this.ecommerceService.saveOrder(this.orders).subscribe();
-        this.ecommerceService.redirectPayment(this.payment).subscribe();
-        
-
+        this.ecommerceService.
+            redirectPayment(this.payment).pipe(first())
+            .subscribe(
+                data => {
+                    localStorage.setItem('paymentRedirect', data);
+                },
+                error => {
+                    console.log(error);
+                });
+                this.router.navigate(['/payment']);
     }
 
     loadTotal() {

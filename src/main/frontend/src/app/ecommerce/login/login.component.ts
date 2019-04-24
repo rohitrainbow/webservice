@@ -3,7 +3,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../services/authentication-servie.service';
-import { AlertService } from '../services/alert-service.service';
 
 @Component({
   selector: 'app-login',
@@ -19,8 +18,7 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService,
-    private alertService: AlertService) { }
+    private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
     if (JSON.parse(localStorage.getItem('currentUser')) != null) {
@@ -55,9 +53,7 @@ export class LoginComponent implements OnInit {
 
           if (data.token != null) {
             this.router.navigate([this.returnUrl + '/home']);
-          }
-          else {
-            this.alertService.error("Inavlid Credentials");
+          } else {
             this.submitted = false;
             this.loading = false;
           }
