@@ -8,13 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.theimitation.webservice.dto.PaymentDto;
 
-
-
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class PaymentController {
 
-	@RequestMapping(method = RequestMethod.POST, value = "/payment")
+	@RequestMapping(method = RequestMethod.POST, value = "/api/payment")
 	public String paymentRedirect(@RequestBody PaymentDto payment) {
 		System.out.println("called");
 		System.out.println(payment.getCustId());

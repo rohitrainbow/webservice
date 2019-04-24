@@ -11,7 +11,7 @@ public class Test {
 	 */
 	public static void main(String[] args) {
 		EmailUtil eu=new EmailUtil();
-		//eu.sendEmail(null, "rupeshnegi83@gmail.com", "TLSEmail Testing Subject", "TLSEmail Testing Body");
+		eu.sendEmail(null, "rohit.lalwani@outlook.com", "TLSEmail Testing Subject", "TLSEmail Testing Body");
 		CipherHelper ch=new CipherHelper();
 		try {
 			PaymentService ps=new PaymentServiceImpl();
