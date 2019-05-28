@@ -13,7 +13,7 @@ import { Router} from '@angular/router';
 })
 export class EcommerceComponent implements OnInit {
     currentUser: User;
-    public collapsed = true;
+
     orderFinished = false;
     
 
@@ -40,9 +40,7 @@ export class EcommerceComponent implements OnInit {
          }
     }
 
-    toggleCollapsed(): void {
-        this.collapsed = !this.collapsed;
-    }
+
 
     finishOrder(orderFinished: boolean) {
         this.orderFinished = orderFinished;

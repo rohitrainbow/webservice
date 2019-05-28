@@ -10,6 +10,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
     providers: [EcommerceService]
 })
 export class AppComponent {
+    public collapsed = true;
     constructor(titleService: Title, router: Router, activatedRoute: ActivatedRoute) {
         router.events.subscribe(event => {
             if (event instanceof NavigationEnd) {
@@ -28,5 +29,9 @@ export class AppComponent {
             data.push(... this.getTitle(state, state.firstChild(parent)));
         }
         return data;
+    }
+
+    toggleCollapsed(): void {
+        this.collapsed = !this.collapsed;
     }
 }
