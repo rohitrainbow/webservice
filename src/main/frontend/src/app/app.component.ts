@@ -11,6 +11,9 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 })
 export class AppComponent {
     public collapsed = true;
+    toggleCollapsed(): void {
+        this.collapsed = !this.collapsed;
+    }
     constructor(titleService: Title, router: Router, activatedRoute: ActivatedRoute) {
         router.events.subscribe(event => {
             if (event instanceof NavigationEnd) {
@@ -31,7 +34,5 @@ export class AppComponent {
         return data;
     }
 
-    toggleCollapsed(): void {
-        this.collapsed = !this.collapsed;
-    }
+    
 }
