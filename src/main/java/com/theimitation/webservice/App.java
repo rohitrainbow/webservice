@@ -24,10 +24,10 @@ public class App {
 		SpringApplication.run(App.class, args);
 	}
 
-	@Bean
+/*	@Bean
 	CommandLineRunner runner(ProductService productService, UserDao userService) {
 		return args -> {
-			productService.save(new Product(1L, "TV Set", 300.00, "images/tv.jpeg"));
+			productService.save(new Product(30L, "ITSJSET00030", 286.00, "images/ITSJSET00030.jpg"));
 			productService.save(new Product(2L, "Game Console", 200.00, "images/gameconsole.jpg"));
 			productService.save(new Product(3L, "Sofa", 100.00, "images/sofa.jpg"));
 			productService.save(new Product(4L, "Icecream", 5.00, "images/icecream.jpg"));
@@ -36,7 +36,7 @@ public class App {
 			productService.save(new Product(7L, "Watch", 30.00, "images/watch.jpg"));
 		};
 
-	}
+	}*/
 
 	@Bean
 	public FilterRegistrationBean simpleCorsFilter() {

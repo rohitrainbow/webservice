@@ -1,0 +1,15 @@
+insert into product values('30', 'ITSJSET00030', 'images/ITSJSET00030.jpg', 286.00);
+insert into product values('31', 'ITSJSET00031', 'images/ITSJSET00031.jpg', 518.00);
+insert into product values('32', 'ITSJSET00032', 'images/ITSJSET00032.jpg', 438.00);
+insert into product values('33', 'ITSJSET00033', 'images/ITSJSET00033.jpg', 438.00);
+insert into product values('34', 'ITSJSET00034', 'images/ITSJSET00034.jpg', 538.00);
+insert into product values('35', 'ITSJSET00035', 'images/ITSJSET00035.jpg', 538.00);
+insert into product values('36', 'ITSJSET00036', 'images/ITSJSET00036.jpg', 538.00);
+insert into product values('37', 'ITSJSET00037', 'images/ITSJSET00037.jpg', 538.00);
+insert into product values('38', 'ITSJSET00038', 'images/ITSJSET00038.jpg', 558.00);
+insert into product values('39', 'ITSJSET00039', 'images/ITSJSET00039.jpg', 558.00);
+insert into product values('40', 'ITSJSET00040', 'images/ITSJSET00040.jpg', 568.00);
+insert into product values('41', 'ITSJSET00041', 'images/ITSJSET00041.jpg', 568.00);
+insert into product values('42', 'ITSJSET00042', 'images/ITSJSET00042.jpg', 568.00);
+insert into product values('43', 'ITSJSET00043', 'images/ITSJSET00043.jpg', 648.00);
+insert into product values('44', 'ITSJSET00044', 'images/ITSJSET00044.jpg', 648.00);
