@@ -1,3 +1,4 @@
+delete from product;
 insert into product values('30', 'ITSJSET00030', 'images/ITSJSET00030.jpg', 286.00);
 insert into product values('31', 'ITSJSET00031', 'images/ITSJSET00031.jpg', 518.00);
 insert into product values('32', 'ITSJSET00032', 'images/ITSJSET00032.jpg', 438.00);

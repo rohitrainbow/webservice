@@ -15,6 +15,8 @@ import { RegisterComponent } from './ecommerce/register/register.component';
 import { AuthenticationService } from './ecommerce/services/authentication-servie.service';
 import { AlertService } from './ecommerce/services/alert-service.service';
 import { PaymentComponent } from './ecommerce/payment/payment.component';
+import { AboutComponent } from './ecommerce/about/about.component';
+import { ContactComponent } from './ecommerce/contact/contact.component';
 
 
 const appRoutes: Routes = [
@@ -42,6 +44,16 @@ const appRoutes: Routes = [
         path: 'payment',
         component: PaymentComponent,
         data: { title: 'payment' }
+      },
+      {
+        path: 'about',
+        component: AboutComponent,
+        data: { title: 'About Us' }
+      },
+      {
+        path: 'contact',
+        component: ContactComponent,
+        data: { title: 'Contact Us' }
       }
   ];
 
@@ -54,7 +66,9 @@ const appRoutes: Routes = [
         OrdersComponent,
         LoginComponent,
         RegisterComponent,
-        PaymentComponent
+        PaymentComponent,
+        AboutComponent,
+        ContactComponent
     ],
     imports: [
         BrowserModule,
