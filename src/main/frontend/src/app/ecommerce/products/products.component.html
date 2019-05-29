@@ -7,7 +7,7 @@
                 <h4>{{order.product.name}}</h4>
             </div>
             <div class="card-body">
-                <a href="#"><img class="card-img-top" src={{order.product.pictureUrl}} alt=""></a>
+                <a href="#/productdetails/{{order.product.id}}"><img class="card-img-top" src={{order.product.pictureUrl}} alt=""></a>
                 <h5 class="card-title">Rs.{{order.product.price}}</h5>
                 <div class="row">
                     <!--<div class="col-4 padding-0" *ngIf="!isProductSelected(order.product)">

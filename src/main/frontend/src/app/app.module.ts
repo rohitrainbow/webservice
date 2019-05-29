@@ -17,6 +17,7 @@ import { AlertService } from './ecommerce/services/alert-service.service';
 import { PaymentComponent } from './ecommerce/payment/payment.component';
 import { AboutComponent } from './ecommerce/about/about.component';
 import { ContactComponent } from './ecommerce/contact/contact.component';
+import { ProductDescrComponent } from './ecommerce/product-descr/product-descr.component';
 
 
 const appRoutes: Routes = [
@@ -54,6 +55,11 @@ const appRoutes: Routes = [
         path: 'contact',
         component: ContactComponent,
         data: { title: 'Contact Us' }
+      },
+      {
+        path: 'productdetails/:id',
+        component: ProductDescrComponent,
+        data: { title: 'Product Details' }
       }
   ];
 
@@ -68,7 +74,8 @@ const appRoutes: Routes = [
         RegisterComponent,
         PaymentComponent,
         AboutComponent,
-        ContactComponent
+        ContactComponent,
+        ProductDescrComponent
     ],
     imports: [
         BrowserModule,

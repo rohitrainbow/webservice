@@ -13,16 +13,22 @@ public class Product {
     @NotNull(message = "Product name is required.")
     @Basic(optional = false)
     private String name;
+    
+    @OneToOne
+	@JoinColumn(name="descr_id")
+    private ProdDescr prodDescr;
 
     private Double price;
 
     private String pictureUrl;
+    
 
-    public Product(Long id, @NotNull(message = "Product name is required.") String name, Double price, String pictureUrl) {
+    public Product(Long id, @NotNull(message = "Product name is required.") String name, Double price, String pictureUrl, ProdDescr prodDescr) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.pictureUrl = pictureUrl;
+        this.prodDescr=prodDescr;
     }
 
     public Product() {
@@ -59,4 +65,14 @@ public class Product {
     public void setPictureUrl(String pictureUrl) {
         this.pictureUrl = pictureUrl;
     }
+
+	public ProdDescr getProdDescr() {
+		return prodDescr;
+	}
+
+	public void setProdDescr(ProdDescr prodDescr) {
+		this.prodDescr = prodDescr;
+	}
+    
+    
 }
