@@ -24,6 +24,16 @@ insert into product values('15', 'ITSJSET00015', 'images/ITSJSET00015.jpg', 568.
 insert into product values('17', 'ITSJSET00017', 'images/ITSJSET00017.jpg', 328.00,17);
 insert into product values('29', 'ITSJSET00029', 'images/ITSJSET00029.jpg', 286.00,29);
 insert into product values('58', 'ITSJSET00058', 'images/ITSJSET00058.jpg', 458.00,58);
+insert into product values('04', 'ITSJSET00004', 'images/ITSJSET00004.jpg', 345.00,04);
+insert into product values('06', 'ITSJSET00006', 'images/ITSJSET00006.jpg', 378.00,06);
+insert into product values('07', 'ITSJSET00007', 'images/ITSJSET00007.jpg', 345.00,07);
+insert into product values('18', 'ITSJSET00018', 'images/ITSJSET00018.jpg', 408.00,18);
+insert into product values('20', 'ITSJSET00020', 'images/ITSJSET00020.jpg', 328.00,20);
+insert into prod_descr values ('04','test',04);
+insert into prod_descr values ('06','test',06);
+insert into prod_descr values ('07','test',07);
+insert into prod_descr values ('18','test',18);
+insert into prod_descr values ('20','test',20);
 insert into prod_descr values ('30','test',30);
 insert into prod_descr values ('31','test',31);
 insert into prod_descr values ('32','test',32);
