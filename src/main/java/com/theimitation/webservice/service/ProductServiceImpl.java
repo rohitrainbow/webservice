@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.theimitation.webservice.exception.ResourceNotFoundException;
+import com.theimitation.webservice.model.ProdDescr;
 import com.theimitation.webservice.model.Product;
+import com.theimitation.webservice.repository.ProdDescrRepository;
 import com.theimitation.webservice.repository.ProductRepository;
 
 @Service
@@ -18,6 +20,9 @@ import com.theimitation.webservice.repository.ProductRepository;
 public class ProductServiceImpl implements ProductService {
 
 	private ProductRepository productRepository;
+	
+	@Autowired
+	private ProdDescrRepository prodDescrRepository;
 	
 	@Autowired
 	EntityManager entityManager;
@@ -34,6 +39,11 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public Product getProduct(long id) {
 		return productRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Product not found"));
+	}
+	
+	@Override
+	public ProdDescr getProductDescr(Long id) {
+		return prodDescrRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Product Descr not found"));
 	}
 
 	@Override
