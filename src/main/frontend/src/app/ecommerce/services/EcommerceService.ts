@@ -4,12 +4,14 @@ import { ProductOrders } from "../models/product-orders.model";
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 import { Payment } from "../models/payment";
+import { map } from "rxjs/operators";
 
 @Injectable()
 export class EcommerceService {
     private productsUrl = "api/products";
     private ordersUrl = "api/orders";
     private paymentUrl = "/api/payment";
+    private productDescrUrl = "http://localhost/api/product/";
 
     private productOrder: ProductOrder;
     private orders: ProductOrders = new ProductOrders();
@@ -33,6 +35,10 @@ export class EcommerceService {
 
     saveOrder(order: ProductOrders) {
         return this.http.post(this.ordersUrl, order);
+    }
+
+    getProductDescr(id:string) {
+        return this.http.get(this.productDescrUrl+id).pipe(map(product =>{return product})) ; 
     }
 
     set SelectedProductOrder(value: ProductOrder) {
