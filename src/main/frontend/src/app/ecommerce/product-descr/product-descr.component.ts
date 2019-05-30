@@ -31,7 +31,11 @@ export class ProductDescrComponent implements OnInit {
       this.ecommerceService.
         getProductDescr(String(this.productId)).pipe(first())
         .subscribe(
-          data => { console.log(data); })
+          data => { 
+            let obj:parsed_data = JSON.parse(data); 
+              console.log(parsed_data); // use this variable as object
+          })
+      
     );
   }
 }
