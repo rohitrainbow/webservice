@@ -1,25 +1,21 @@
-package com.theimitation.webservice.model;
+package com.theimitation.webservice.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.annotation.ManagedBean;
 
-@Entity
-public class ProdDescr {
+@ManagedBean
+public class ProdDescrDto {
 
-	@Id
 	private Long descrId;
 
 	private String descr;
 
-	@Column(name = "prod_id", unique = true, nullable = false)
 	private Long productId;
 
-	public ProdDescr() {
+	public ProdDescrDto() {
 		super();
 	}
 
-	public ProdDescr(Long descrId, String descr, Long productId) {
+	public ProdDescrDto(Long descrId, String descr, Long productId) {
 		super();
 		this.descrId = descrId;
 		this.descr = descr;

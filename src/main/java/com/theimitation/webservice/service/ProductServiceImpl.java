@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.theimitation.webservice.dto.ProdDescrDto;
+import com.theimitation.webservice.dto.ProductDto;
 import com.theimitation.webservice.exception.ResourceNotFoundException;
 import com.theimitation.webservice.model.ProdDescr;
 import com.theimitation.webservice.model.Product;
@@ -18,6 +20,14 @@ import com.theimitation.webservice.repository.ProductRepository;
 @Service
 @Transactional
 public class ProductServiceImpl implements ProductService {
+	
+	
+	@Autowired
+	ProductDto productDto;
+	
+	@Autowired
+	ProdDescrDto prodDescrDto;
+
 
 	private ProductRepository productRepository;
 	
@@ -44,6 +54,24 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public ProdDescr getProductDescr(Long id) {
 		return prodDescrRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Product Descr not found"));
+	}
+	
+	@Override
+	public ProductDto getProductDetails(Long id) {
+		Product product=new Product();
+		ProdDescr prodDescr=new ProdDescr();
+		product=getProduct(id);
+		product.setProdDescr(getProductDescr(id));
+		productDto.setId(product.getId());
+		productDto.setName(product.getName());
+		productDto.setPictureUrl(product.getPictureUrl());
+		productDto.setPrice(product.getPrice());
+		prodDescr=getProductDescr(id);
+		prodDescrDto.setDescr(prodDescr.getDescr());
+		prodDescrDto.setDescrId(prodDescr.getDescrId());
+		prodDescrDto.setProductId(prodDescr.getProductId());
+		productDto.setProdDescr(prodDescrDto);
+		return productDto;
 	}
 
 	@Override

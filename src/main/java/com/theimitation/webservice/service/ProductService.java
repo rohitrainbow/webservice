@@ -2,6 +2,7 @@ package com.theimitation.webservice.service;
 
 import org.springframework.validation.annotation.Validated;
 
+import com.theimitation.webservice.dto.ProductDto;
 import com.theimitation.webservice.model.ProdDescr;
 import com.theimitation.webservice.model.Product;
 
@@ -20,4 +21,6 @@ public interface ProductService {
 
 	Product save(Product product);
 	public Product getUsingProductName(String name);
+	
+	ProductDto getProductDetails(Long id);
 }
