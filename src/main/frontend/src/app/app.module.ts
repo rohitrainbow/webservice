@@ -18,6 +18,7 @@ import { PaymentComponent } from './ecommerce/payment/payment.component';
 import { AboutComponent } from './ecommerce/about/about.component';
 import { ContactComponent } from './ecommerce/contact/contact.component';
 import { ProductDescrComponent } from './ecommerce/product-descr/product-descr.component';
+import { BuyNowComponent } from './ecommerce/buy-now/buy-now.component';
 
 
 const appRoutes: Routes = [
@@ -60,6 +61,11 @@ const appRoutes: Routes = [
         path: 'productdetails/:id',
         component: ProductDescrComponent,
         data: { title: 'Product Details' }
+      },
+      {
+        path: 'buy/:id',
+        component: BuyNowComponent,
+        data: { title: 'Product Details' }
       }
   ];
 
@@ -75,7 +81,8 @@ const appRoutes: Routes = [
         PaymentComponent,
         AboutComponent,
         ContactComponent,
-        ProductDescrComponent
+        ProductDescrComponent,
+        BuyNowComponent
     ],
     imports: [
         BrowserModule,
