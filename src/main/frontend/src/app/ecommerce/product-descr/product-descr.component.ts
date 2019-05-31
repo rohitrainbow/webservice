@@ -17,7 +17,7 @@ export class ProductDescrComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router, private ecommerceService: EcommerceService) {
-      this.product=new Product(1,"",9999,"",new ProdDescr(1,"",1));
+      this.product=new Product(1,"ITS",9999,"",new ProdDescr(1,"",1));
     this.route.params.subscribe(params => {
       this.productId = params.id;
     });
