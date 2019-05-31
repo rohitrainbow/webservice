@@ -11,7 +11,7 @@ export class EcommerceService {
     private productsUrl = "api/products";
     private ordersUrl = "api/orders";
     private paymentUrl = "/api/payment";
-    private productDescrUrl = "http://localhost/api/product/";
+    private productDescrUrl = "api/product/";
 
     private productOrder: ProductOrder;
     private orders: ProductOrders = new ProductOrders();
@@ -37,8 +37,8 @@ export class EcommerceService {
         return this.http.post(this.ordersUrl, order);
     }
 
-    getProductDescr(id:string) {
-        return this.http.get(this.productDescrUrl+id).pipe(map(product =>{return product})) ; 
+    getProductDescr(id: string) {
+        return this.http.post<any>(this.productDescrUrl + id, {}).pipe(map(product =>{return product;})) ;
     }
 
     set SelectedProductOrder(value: ProductOrder) {

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.theimitation.webservice.dto.ProdDescrDto;
@@ -36,7 +37,7 @@ public class ProductController {
         return productService.getAllProducts();
     }
     
-    @RequestMapping("/api/product/{id}")
+    @RequestMapping(method = RequestMethod.POST, value ="/api/product/{id}")
     public ProductDto getProductDescr(@PathVariable Long id) {
     	return productService.getProductDetails(id);
     }

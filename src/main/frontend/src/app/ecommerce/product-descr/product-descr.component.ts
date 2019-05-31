@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EcommerceService } from '../services/EcommerceService';
 import { first } from 'rxjs/operators';
 import { Product } from '../models/product.model';
+import { ProdDescr } from '../models/prod-descr.model';
 
 @Component({
   selector: 'app-product-descr',
@@ -16,26 +17,26 @@ export class ProductDescrComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router, private ecommerceService: EcommerceService) {
+      this.product=new Product(1,"",9999,"",new ProdDescr(1,"",1));
     this.route.params.subscribe(params => {
       this.productId = params.id;
     });
-    this.loadProdDescr();
+   
   }
 
   ngOnInit() {
+    this.loadProdDescr();
   }
 
   loadProdDescr() {
-    console.log(
 
-      this.ecommerceService.
-        getProductDescr(String(this.productId)).pipe(first())
-        .subscribe(
-          data => { 
-            let obj:parsed_data = JSON.parse(data); 
-              console.log(parsed_data); // use this variable as object
-          })
-      
-    );
-  }
+    this.ecommerceService.
+      getProductDescr(String(this.productId)).pipe(first())
+      .subscribe(
+        data => {
+          this.product = data; // use this variable as object
+        });
+        }
+
+        
 }
