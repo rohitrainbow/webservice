@@ -1,7 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" 
 >
         <div class="container">
-                <a class="navbar-brand" href="#">The Imitation Store</a>
+                <a class="navbar-brand" href="#">
+                                <img src="assets/img/sitelogo.jpg" alt="The Imitation Store" width="140px">
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                         aria-label="Toggle navigation" (click)="toggleCollapsed()">
@@ -10,15 +12,15 @@
                 <div id="navbarResponsive" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
                         <ul class="navbar-nav ml-auto">
                                 <li class="nav-item active">
-                                        <a class="nav-link" [routerLink]="['/home']">Home
+                                        <a class="nav-link" [routerLink]="['/home']" style="color:rgba(255, 217, 0, 0.795)">Home
                                                 <span class="sr-only">(current)</span>
                                         </a>
                                 </li>
                                 <li class="nav-item active">
-                                        <a class="nav-link" [routerLink]="['/about']">About Us</a>
+                                        <a class="nav-link" [routerLink]="['/about']" style="color:rgba(255, 217, 0, 0.795)">About Us</a>
                                 </li>
                                 <li class="nav-item active">
-                                        <a class="nav-link" [routerLink]="['/contact']">Contact Us</a>
+                                        <a class="nav-link" [routerLink]="['/contact']" style="color:rgba(255, 217, 0, 0.795)">Contact Us</a>
                                 </li>
                         </ul>
                 </div>
@@ -27,4 +29,8 @@
 <div class="container">
 
         <router-outlet></router-outlet>
+</div>
+
+<div class="container">
+        <h2> <a href="android-app/The imitation Store.apk">Click Here</a> to download our android app.</h2>
 </div>

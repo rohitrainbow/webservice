@@ -1,5 +1,6 @@
 <br>
 <br>
+<br>
 <div class="row card-deck">
     <div class="col-lg-4 col-md-6 mb-4" *ngFor="let order of productOrders">
         <div class="card text-center">
@@ -18,11 +19,17 @@
                                 [disabled]="order.quantity <= 0">Add To Cart
                         </button>
                     </div>-->
+                    <div style="text-align: center; margin: 0 auto;">
+                        <a href="#/buy/{{order.product.name}}"><button class="btn btn-primary" >Buy Now
+                        </button></a>
+                    </div>
+                    <!--11
                     <div class="col-12" *ngIf="isProductSelected(order.product)">
                         <button class="btn btn-primary btn-block"
                                 (click)="removeFromCart(order)">Remove From Cart
                         </button>
                     </div>
+                -->
                 </div>
             </div>
         </div>
