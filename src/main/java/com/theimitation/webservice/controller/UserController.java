@@ -1,5 +1,7 @@
 package com.theimitation.webservice.controller;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,5 +33,11 @@ public class UserController {
 	@RequestMapping(method = RequestMethod.POST, value = "/users/register")
 	public String registerUser(@RequestBody User user) {
 		return userService.userRegistration(user);
+	}
+	
+	@RequestMapping(value = "/android-app/{id}", method = RequestMethod.GET)
+	public void method(HttpServletResponse httpServletResponse) {
+	    httpServletResponse.setHeader("Location", "https://play.google.com/store/apps/details?id=store.theimitation.theimitationstore");
+	    httpServletResponse.setStatus(302);
 	}
 }
